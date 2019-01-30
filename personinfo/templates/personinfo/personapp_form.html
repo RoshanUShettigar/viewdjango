@@ -1,0 +1,33 @@
+{% extends 'personinfo/base.html' %}
+
+{% block body %}
+
+<h2>
+    Information Registration
+</h2>
+
+<form method="post">
+   {% csrf_token %}
+
+  <div>
+    <label>First Name</label>:{{form.fname}}
+  </div><br>
+   <div>
+      <label>Last Name</label>: {{form.lname}}
+  </div><br>
+
+       <div>
+     <label>Phone</label>: {{form.phone_no}}
+  </div><br>
+       <div>
+     <label>Email Address</label>: {{form.email}}
+  </div><br>
+
+   <div>
+     <label>City</label>: {{form.city}}
+  </div><br>
+
+  <button type="submit">Submit</button>
+</form>
+
+{% endblock%}

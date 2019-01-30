@@ -1,0 +1,43 @@
+{% extends 'personinfo/base.html' %}
+
+ {% block body%}
+<style>
+    th,td{
+    padding :10px
+    }
+</style>
+<h2>All Personnel List</h2>
+ {% if PInfo %}
+    <table border="1">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name </th>
+            <th>Email</th>
+            <th>Phone</th>
+             <th>City</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+        </tr>
+
+            {% for personinfo in PInfo %}
+                <tr>
+                    <td>{{personinfo.fname}}</td>
+                    <td>{{personinfo.lname}}</td>
+                    <td>{{personinfo.email}}</td>
+                    <td>{{personinfo.phone_no}}</td>
+                    <td>{{personinfo.city}}</td>
+                    <td><a href="{% url 'personinfo:edit' personinfo.id %}">Edit</a></td>
+                     <td>  <a href="{% url 'personinfo:deletes' personinfo.id %}">Delete</a></td>
+                </tr>
+
+         {% endfor %}
+        {% else %}
+            <h2>Non Records Found</h2>
+        {% endif %}
+    </table>
+   <table border="2">
+       <tr><th>Dept_personnel</th><th>Departrment</th></tr>
+
+   </table>
+{% endblock%}
