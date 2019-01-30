@@ -19,7 +19,7 @@ class IndexView(generic.ListView):
 
 class Infosave(CreateView):
     model = PersonApp
-    fields = ['fname', 'lname', 'phone_no', 'email']
+    fields = ['fname', 'lname', 'phone_no', 'email','city']
 
 class editInfo(UpdateView):
     model = PersonApp
